@@ -38,6 +38,6 @@ Security checks on client and server side
 - IMportant that flags and headers are put on.
 
 **Using Known Vulnerable Components**
-- 
+- Manage security of third-partyy software and components, their versions and dependencies
 
 
