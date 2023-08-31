@@ -64,3 +64,4 @@
 - Så vil mottaker få data og gå motsatt vei gjennom nettverks stacken.
 
 
+
