@@ -9,10 +9,11 @@
 	○ Dette er nødvendig for at forskjellige systemer skal kunne forstå og behandle dataene som utvekselet mellom dem
 
 
-**Encapsulering**
+#### Encapsulering
 - Skjer i alle lagene nedenfor her bortsett fra link nivået
 - Her blir data pakket fra ett høyere lag og sendt videre
 
+<br/>
 
 **Transport nivå**
 - Her tas data imot fra applikasjonsnivået som er pakket inn i forhold til protokollen, eks HTTP eller SMTP.
@@ -30,7 +31,7 @@
 	○ RDT 3.0 - Nettverk tap av segmenter. Her har vi timere / timeouts og retransmisjon for da pakkene blir borte. Og vi har også segmentnummer for å kunne se om en pakke blir borte som skulle ha kommet mellom to andre pakker.
 	○ RDT 4.0 - Nettverk med overtakelse av segmenter. Større sekvensnummer
 		
-		
+<br/>		
 	
 **Nettverks nivå**
 - Dette nivået er ansvarlig for å rute og levere pakker mellom avsender og mottaker. IP er hoved protokollen her. 
@@ -39,6 +40,8 @@
 - Nettverksnivået bestemmer ruting og sendingen av pakkene, her må pakker sendes til riktige rutere og nettverksenheter basert på IP adresser. 
 - OSPF brukes for å finne korteste veier i nettverket og er en routing funksjon som enheter i nettverket som rutere bruker for å finne de korteste veiene i nettverket og bruker denne informasjonen til å lage ett routing table, spesielt i rutere. Som inneholder en tabell for neste hopp for datapakkene basert på IP adressene deres.
 - Her brukes link state med djikstra eller vector med bellman ford
+
+<br/>
 
 **Link nivå**
 - Link nivået er ansvarlig for å pakke inn data i rammer og håndtere informasjonen mellom direkte tilkoblede noder i nettverket
@@ -49,6 +52,8 @@
 - Så sendes rammen til fysisk nivået
 - Her har vi DHCP som automatisk konfigurerer IP adresser til en host som kobles til nettverket
 - ARP protokollen er også her, som er en spørring med IP adresser som vil få ett svar med IP adressen og MAC adressen til den som blir spørt etter.
+
+<br/>
 
 **Fysisk nivå**
 - Her skal dataen overføres via det fysiske medium, kabel, fiber eller trådløst
