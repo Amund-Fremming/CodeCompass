@@ -39,5 +39,33 @@ Security checks on client and server side
 
 **Using Known Vulnerable Components**
 - Manage security of third-partyy software and components, their versions and dependencies
+- Use software compositino analysis (SCA) tools
+
+**Improper Authentication**
+- Dont expose session IDs in the URL
+- Multi-factor authentication
+Dont store user IDs or predictable sequential values as session IDs. Instead, use a secure server-side session manager that generates a random session ID
+
+**Insufficeient Logging and Monitoring**
+- You are at risk if you dont logevents like logins, or transactions making the application unable to detect or alert for active attacks
+- Ensure all failures are properly logged with user context
+- Have effective monitoring and alerting so that suspicious activities are detected and handeled
+- Minimum requirements: When, Where, Who, What
+- Monitor key events, dont log sensitive information
+
+**Server Side Request Forgery**
+- A hacker can scan for open ports, retrive files or acces files
+- Restrics requests made by the server, to allowlisted locations whenever possible
+- Verify the requested file type matches that which is expected
+- When fetching an url from the web have a allowedlist of hosts and a allowed schemes like https
+
+
+
+
+
+
+
+
+
 
 
