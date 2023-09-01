@@ -1,4 +1,3 @@
 # CodeCompass
-
-**Test**
+- Collection of theory and programming topics
  
