@@ -33,7 +33,7 @@
 		
 <br/>		
 	
-**Nettverks nivå**
+**Nettverks nivå** 
 - Dette nivået er ansvarlig for å rute og levere pakker mellom avsender og mottaker. IP er hoved protokollen her. 
 - Segmentet fra transport nivået blir mottatt, disse inneholder transport headere (TCP og UDP) og data fra applikasjonsnivået
 - Her blir segmentene pakket inn i IP datagram som har IP headere som versjonen IPv4 eller 6, total lengde, checksum, kilde og mål IP adresse hvilken type protokoll osv.
