@@ -14,9 +14,9 @@ export const db = getFirestore(app);
 
 ***Query a documentRef***
 ```js
-const getDocumentRef = async (<entry_to_search>) => {
+const getDocumentRef = async (entry_to_search) => {
     const collectionRef = collection(db, "<collection_name>");
-    const q = query(collectionRef, where("<name_of_entry_in_collection>", "==", <entry_to_search>));
+    const q = query(collectionRef, where("<name_of_entry_in_collection>", "==", entry_to_search));
     try {
         const querySnapshot = await getDocs(q);
         if(!querySnapshot.empty) {
@@ -114,7 +114,32 @@ const updateDoc = async (id, newDoc) => {
 
 ***Update with given entry***
 ```js
+const updateDocByField = async (entryName, newData) => {
+    try {
+        // See method on top of page
+        const documentRef = await getDocumentRef(entryName);
 
+        if (documentRef) {
+            await runTransaction(db, async (transaction) => {
+                const docSnapshot = await getDoc(documentRef);
+
+                if (docSnapshot.exists()) {
+                    // Update your data
+                    // const updatedData;
+                    await updateDoc(documentRef, updatedData);
+                    console.log("Document updated successfully.");
+                } else {
+                    console.log("Document does not exist.");
+                }
+            });
+        } else {
+            console.log("No document matching the entry name found.");
+        }
+    } catch (error) {
+        console.error("Transaction failed: ", error);
+        throw error; // You can handle the error as needed
+    }
+};
 ```
 
 ***Delete with id***
@@ -134,7 +159,30 @@ const deleteDoc = async (id) => {
 
 ***Delete with given entry***
 ```js
+const deleteDocByField = async (entryName) => {
+    try {
+        // See method on top of page
+        const documentRef = await getDocumentRef(entryName);
 
+        if (documentRef) {
+            await runTransaction(db, async (transaction) => {
+                const docSnapshot = await getDoc(documentRef);
+
+                if (docSnapshot.exists()) {
+                    // Delete the document
+                    await deleteDoc(documentRef);
+                    console.log("Document deleted successfully.");
+                } else {
+                    console.log("Document does not exist.");
+                }
+            });
+        } else {
+            console.log("No document matching the entry name found.");
+        }
+    } catch (error) {
+        console.error("Transaction failed: ", error);
+    }
+};
 ```
 
 

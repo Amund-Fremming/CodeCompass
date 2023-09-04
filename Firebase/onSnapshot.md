@@ -7,9 +7,9 @@ import { onSnapshot, collection, where, query } from 'firebase/firestore';
 
 ***Query a documentRef***
 ```js
-const getDocumentRef = async (<entry_to_search>) => {
+const getDocumentRef = async (entry_to_search) => {
     const collectionRef = collection(db, "<collection_name>");
-    const q = query(collectionRef, where("<name_of_entry_in_collection>", "==", <entry_to_search>));
+    const q = query(collectionRef, where("<name_of_entry_in_collection>", "==", entry_to_search));
     try {
         const querySnapshot = await getDocs(q);
         if(!querySnapshot.empty) {
@@ -25,9 +25,7 @@ const getDocumentRef = async (<entry_to_search>) => {
 ***Listen to a given entry***
 ```js
 useEffect(() => {
-
-    // Subscribes to a given entry
-    const documentRef = getDocumentRef();
+    const documentRef = getDocumentRef(entryName);
 
     const unsubscribe = onSnapshot(documentRef, snapshot => {
         if(snapshot.data()) {

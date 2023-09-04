@@ -16,9 +16,9 @@ export const db = getFirestore(app);
 
 ***Query a documentRef***
 ```js
-const getDocumentRef = async (<entry_to_search>) => {
+const getDocumentRef = async (entry_to_search) => {
     const collectionRef = collection(db, "<collection_name>");
-    const q = query(collectionRef, where("<name_of_entry_in_collection>", "==", <entry_to_search>));
+    const q = query(collectionRef, where("<name_of_entry_in_collection>", "==", entry_to_search));
     try {
         const querySnapshot = await getDocs(q);
         if(!querySnapshot.empty) {
@@ -115,6 +115,29 @@ const updateDoc = async (id, newDoc) => {
 
 ***Update by field***
 ```js
+const updateDocByField = async (entryName, newData) => {
+    try {
+        // See method on top of page
+        const documentRef = await getDocumentRef(entryName);
+
+        if (documentRef) {
+            const docSnapshot = await getDoc(documentRef);
+
+            if (docSnapshot.exists()) {
+                // Update your data
+                // const updatedData
+                await updateDoc(documentRef, updatedData);
+                console.log("Document updated successfully.");
+            } else {
+                console.log("Document does not exist.");
+            }
+        } else {
+            console.log("No document matching the entry name found.");
+        }
+    } catch (error) {
+        console.error("Update operation failed: ", error);
+    }
+};
 
 ```
 
@@ -128,7 +151,27 @@ const deleteDoc = async (id) => {
 
 ***Delete by field***
 ```js
+const deleteDocByField = async (entryName) => {
+    try {
+        // See method on top of page
+        const documentRef = await getDocumentRef(entryName);
 
+        if (documentRef) {
+            const docSnapshot = await getDoc(documentRef);
+
+            if (docSnapshot.exists()) {
+                await deleteDoc(documentRef);
+                console.log("Document deleted successfully.");
+            } else {
+                console.log("Document does not exist.");
+            }
+        } else {
+            console.log("No document matching the entry name found.");
+        }
+    } catch (error) {
+        console.error("Delete operation failed: ", error);
+    }
+};
 ```
 
 
