@@ -3,6 +3,16 @@
 ## CRUD
 
 **Imports you need**
+```js
+import { addDoc , collection, getDocs, deleteDoc, doc, updateDoc, onSnapshot } from "firebase/firestore";
+import { db } from "./firebase";
+import { v4 } from "uuid";
+```
+
+**Add db in firebase.js**
+```js
+export const db = getFirestore(app);
+```
 
 ***Create***
 ```js
