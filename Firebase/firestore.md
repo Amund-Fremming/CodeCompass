@@ -22,8 +22,7 @@ const getDocumentRef = async (<entry_to_search>) => {
     try {
         const querySnapshot = await getDocs(q);
         if(!querySnapshot.empty) {
-            const documentRefLocal = doc(collectionRef, querySnapshot.docs[0].id);
-            setDocumentRef(documentRefLocal);
+            // Set your local states
         }
     } catch(err) {
         console.log(err.message);
@@ -79,32 +78,32 @@ const readDocById = async (collectionName, documentId) => {
 
 ***Read one by field***
 ```js
-const readDocByCustomField = async (collectionName, fieldName, fieldValue) => {
-    const todosRef = collection(db, collectionName);
-    const q = query(todosRef, where(fieldName, "==", fieldValue));
-
+const readDocByCustomFieldUsingRef = async (collectionName, fieldName, fieldValue) => {
     try {
-        const querySnapshot = await getDocs(q);
+        const documentRef = await getDocumentRef(fieldValue, collectionName);
+        if (documentRef) {
+            const docSnapshot = await getDoc(documentRef);
 
-        if (!querySnapshot.empty) {
-            // There may be multiple documents with the same field value,
-            // but we'll return the data of the first matching document here.
-            const firstDoc = querySnapshot.docs[0];
-            const data = firstDoc.data();
-            console.log("Read document data: ", data);
-            return data;
+            if (docSnapshot.exists()) {
+                const data = docSnapshot.data();
+                console.log("Read document data: ", data);
+                return data;
+            } else {
+                console.log("Document does not exist.");
+                return;
+            }
         } else {
             console.log("No document matching the field value found.");
             return null;
         }
     } catch (error) {
-        console.error("Error reading document by custom field: ", error);
+        console.error("Error reading document by custom field using reference: ", error);
         throw error; // You can handle the error as needed
     }
 };
 ```
 
-***Update***
+***Update by id***
 ```js
 const updateDoc = async (id, newDoc) => {
     const document = doc(db, "<collection name>", id);
@@ -114,12 +113,22 @@ const updateDoc = async (id, newDoc) => {
 }
 ```
 
-***Delete***
+***Update by field***
+```js
+
+```
+
+***Delete by field***
 ```js
 const deleteDoc = async (id) => {
     const document = doc(db, "<collection name>", id);
     await deleteDoc(document);
 }
+```
+
+***Delete by field***
+```js
+
 ```
 
 

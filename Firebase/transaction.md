@@ -12,6 +12,22 @@ import { v4 } from "uuid";
 export const db = getFirestore(app);
 ```
 
+***Query a documentRef***
+```js
+const getDocumentRef = async (<entry_to_search>) => {
+    const collectionRef = collection(db, "<collection_name>");
+    const q = query(collectionRef, where("<name_of_entry_in_collection>", "==", <entry_to_search>));
+    try {
+        const querySnapshot = await getDocs(q);
+        if(!querySnapshot.empty) {
+            // Set your local states
+        }
+    } catch(err) {
+        console.log(err.message);
+    }
+};
+```
+
 ***Create***
 ```js
 const createDoc = async () => {
@@ -30,7 +46,7 @@ const createDoc = async () => {
 };
 ```
 
-***Read***
+***Read all***
 ```js
 const getDoc = async () => {
     const docRef = collection(db, "todos");
@@ -48,7 +64,38 @@ const getDoc = async () => {
 };
 ```
 
-***Update***
+***Read by id***
+```js
+const readDocByIdTransaction = async (id) => {
+    try {
+        const result = await runTransaction(db, async (transaction) => {
+            const documentRef = doc(db, "todos", id);
+            const docSnapshot = await getDoc(documentRef);
+
+            if (docSnapshot.exists()) {
+                const data = docSnapshot.data();
+                console.log("Read document data: ", data);
+                return data;
+            } else {
+                console.log("Document does not exist.");
+                return null;
+            }
+        });
+
+        return result;
+    } catch (error) {
+        console.error("Transaction failed: ", error);
+        throw error; // You can handle the error as needed
+    }
+};
+```
+
+***Read by field***
+```js
+
+```
+
+***Update with id***
 ```js
 const updateDoc = async (id, newDoc) => {
     const document = doc(db, "todos", id);
@@ -65,7 +112,12 @@ const updateDoc = async (id, newDoc) => {
 };
 ```
 
-***Delete***
+***Update with given entry***
+```js
+
+```
+
+***Delete with id***
 ```js
 const deleteDoc = async (id) => {
     const document = doc(db, "todos", id);
@@ -78,6 +130,11 @@ const deleteDoc = async (id) => {
         console.error("Transaction failed: ", error);
     }
 };
+```
+
+***Delete with given entry***
+```js
+
 ```
 
 
