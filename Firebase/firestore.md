@@ -1,6 +1,4 @@
-# Firestore
-
-## CRUD
+# CRUD
 
 **Imports you need**
 ```js
