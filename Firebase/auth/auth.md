@@ -8,9 +8,8 @@
 - When setting up your routes you wrap your components inside of theese context providers
 - Wrapping components in AuthContextProvider will give the component access to elements like createUser, signIn, logout, user
 - Wrapping with ProtectedRoute will protect users from accessing components inside if they are not logged in
-- Importing your AuthContextProvider and using
+- Importing your AuthContextProvider and using the code below, gives us access to user data, and we can then make user protected routes for personal information.
 ```js
 import { UserAuth } from "./AuthContextProvider";
 const { user } UserAuth();
 ```
-  gives us access to user data, and we can then make user protected routes for personal information.
