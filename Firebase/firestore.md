@@ -34,11 +34,15 @@ const getDocumentRef = async (<entry_to_search>) => {
 ***Create***
 ```js
 const createDoc = async () =>  {
-    const id = v4(); // uuid library
-    const todosRef = collection(db, "todos");
-    await addDoc(todosRef, {
-        // Object to add
-    });
+    try {
+        const id = v4(); // uuid library
+        const todosRef = collection(db, "todos");
+        await addDoc(todosRef, {
+            // Object to add
+        });
+    } catch (err) {
+        console.log("Error: " + err.message);
+    }
 }
 ```
 
