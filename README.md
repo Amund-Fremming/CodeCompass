@@ -1,2 +1,1 @@
-# CodeCompass
-- Collection of theory and programming topics
+# Vite and Tailwindcss project
