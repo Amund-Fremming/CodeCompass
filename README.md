@@ -1,1 +1,1 @@
-# Vite and Tailwindcss project
+# Folder for code snippets and theory
