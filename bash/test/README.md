@@ -1,1 +1,0 @@
-# Vite and Tailwindcss project

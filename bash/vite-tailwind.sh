@@ -80,6 +80,7 @@ export default App;' > App.jsx
 
 
 # Making a gitCommands.sh for shortcuts
+cd ..
 echo '#!/bin/bash
 
 commitmsg=$1
@@ -136,7 +137,6 @@ fi
 
 
 # Start development server
-cd ..
 npm run dev
 
 
