@@ -78,10 +78,8 @@ const App = () => {
 
 export default App;' > App.jsx
 
-# Start development server
-cd ..
-npm run dev
 
+# Making a gitCommands.sh for shortcuts
 echo '#!/bin/bash
 
 commitmsg=$1
@@ -137,6 +135,8 @@ fi
 ' > gitCommands.sh
 
 
-
+# Start development server
+cd ..
+npm run dev
 
 
