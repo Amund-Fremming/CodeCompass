@@ -78,7 +78,6 @@ const App = () => {
 
 export default App;' > App.jsx
 
-
 # Making a gitCommands.sh for shortcuts
 cd ..
 echo '#!/bin/bash
