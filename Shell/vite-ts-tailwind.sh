@@ -7,7 +7,7 @@ if [ -z "$pname" ]; then
     exit 1
 fi
 
-# Vite init
+# Vite init + ts
 npm init vite@latest "$pname" -- --template react-ts
 cd "$pname"
 
@@ -52,12 +52,13 @@ cd src
 rm -rf App.css
 
 # Create architecture
-mkdir views
-mkdir routes
-mkdir images
+mkdir customhooks
 mkdir components
-mkdir config
-mkdir util
+mkdir pages
+mkdir services
+mkdir utils
+mkdir lib
+mkdir styles
 
 # Edit README
 cd ..
@@ -67,15 +68,15 @@ echo '# Vite + Typescript + Tailwindcss project' > README.md
 # Edit App.js
 cd src
 rm -rf App.jsx
-echo 'import React from "react";
+echo '
 
-const App = () => {
+export const App = () => {
     return(
-        <div className="flex bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 justify-center items-center h-screen w-full">
-            <h1 className="font-serif text-8xl font bold text-center text-blue-700 hover:-translate-y-10 transition-all duration-500">Hello Bitches!</h1>
+        <div className="flex bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-400 justify-center items-center h-screen w-full">
+            <h1 className="font-serif text-8xl font bold text-center text-white hover:-translate-y-10 transition-all duration-500">Hello Bitches!</h1>
         </div>
-    );
-};
+    )
+}
 
 export default App;' > App.tsx
 
