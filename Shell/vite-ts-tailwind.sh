@@ -8,7 +8,7 @@ if [ -z "$pname" ]; then
 fi
 
 # Vite init
-npm init vite@latest "$pname" -- --template react
+npm init vite@latest "$pname" -- --template react-ts
 cd "$pname"
 
 # Tailwindcss init
@@ -37,7 +37,8 @@ echo '@import "tailwindcss/base";
 rm -rf vite.config.js
 echo 'import { defineConfig } from "vite"
 import react from "@vitejs/plugin-react"
-import tailwindcss from "tailwindcss";
+import tailwindcss from "tailwindcss"
+
 
 export default defineConfig({
   plugins: [
@@ -61,7 +62,7 @@ mkdir util
 # Edit README
 cd ..
 rm -rf README.md
-echo '# Vite and Tailwindcss project' > README.md
+echo '# Vite + Typescript + Tailwindcss project' > README.md
 
 # Edit App.js
 cd src
@@ -76,7 +77,7 @@ const App = () => {
     );
 };
 
-export default App;' > App.jsx
+export default App;' > App.tsx
 
 # Making a gitCommands.sh for shortcuts
 cd ..
@@ -133,7 +134,6 @@ else
 	git push
 fi
 ' > gitCommands.sh
-
 
 # Start development server
 npm run dev
