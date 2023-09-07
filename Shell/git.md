@@ -5,7 +5,7 @@ git branch <new-branch>
 
 **Delete branch**
 ```sh
-# First out of branch
+# First checkout of branch
 git checkout <other branch>
 # delete local
 git branch -d <name>
