@@ -13,7 +13,8 @@ Redux is commonly used in scenarios where you have multiple components that need
 
 **How to use Redux**
 ```js
-// store.js
+/* store.js */
+// setup store
 import { createStore } from 'redux';
 import rootReducer from './reducers';
 
@@ -23,7 +24,8 @@ export default store;
 ```
 
 ```js
-// reducers.js
+/* reducers.js */
+// set up reducers (similar to setState functions)
 const initialState = {
   todos: [],
 };
@@ -49,7 +51,8 @@ export default todoReducer;
 ```
 
 ```js
-// actions.js
+/* actions.js */
+// Set up actions (These are for using the reducer safely)
 export const addTodo = (text) => ({
   type: 'ADD_TODO',
   payload: { id: Date.now(), text },
@@ -62,8 +65,8 @@ export const removeTodo = (id) => ({
 ```
 
 ```js
+/* TodoList.js */
 // connect components
-// TodoList.js
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { addTodo, removeTodo } from './actions';
