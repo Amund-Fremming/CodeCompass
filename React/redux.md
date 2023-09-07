@@ -13,6 +13,26 @@ Redux is commonly used in scenarios where you have multiple components that need
 ## Code
 
 **How to use Redux**
+```sh
+npm install reduc react-redux
+```
+
+```js
+/* main.jsx / main.tsx */
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
+import store from './redux/store'; // Import your Redux store
+import App from './App'; // Your main application component
+
+ReactDOM.render(
+  <Provider store={store}>
+    <App />
+  </Provider>,
+  document.getElementById('root')
+);
+```
+
 ```js
 /* store.js */
 // setup store
@@ -73,6 +93,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { addTodo, removeTodo } from './actions';
 
 function TodoList() {
+  // This selector gets the state provided in main.jsx/tsx
   const todos = useSelector((state) => state.todos);
   const dispatch = useDispatch();
 
