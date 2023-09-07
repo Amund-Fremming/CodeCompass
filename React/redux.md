@@ -8,8 +8,9 @@ Redux is a state management library primarily used with React but can also be us
 **Why use, and where to use Redux?**
 Redux is commonly used in scenarios where you have multiple components that need to share and synchronize data. It's especially helpful when you have deeply nested components or when you need to pass data between components that are not directly connected. Redux helps you maintain a single source of truth for your application's state, making it easier to reason about and debug.
 
+<br>
 
-# Code
+## Code
 
 **How to use Redux**
 ```js
