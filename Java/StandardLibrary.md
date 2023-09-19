@@ -1,4 +1,4 @@
-# Wrapper Classes
+# Standard Library
 
 **Integer Double Character Boolean**
 
@@ -26,3 +26,9 @@
 - min(double a, double b)
 - pow(double a, double b)
 - sqrt(double a)
+
+**System**
+
+- currentTimeMillis() // 1000/60/60/24
+- exit(0)
+- in (new Scanner(System.in("Name: ")))
