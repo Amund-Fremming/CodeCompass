@@ -1,5 +1,11 @@
 # Concurrency
 
+**When to use**
+
+- I/O operations, when waiting for a users input
+- When fetching data, or to fetch data
+- background tasks
+
 **_Threads_**
 
 - Synchronized: this blocks other threads from using this part of the code

@@ -1,4 +1,9 @@
-**Object Oriented Programming**
+# Object Oriented Programming
+
+- Use static methods when
+  - Utility or helper
+  - No instance variables
+  - Stateless
 
 **_Innkapsling_**
 
