@@ -18,6 +18,7 @@
 
 - O(n^2)
 - Splits the array in the center and takes out a partition, left side tries to find an element larger than pivot and the other side smaller than pivot, then they swap elements. When left side and right side meet the array is sorted
+- The sorting and taking out pivot will happen recursivly
 
 **Merge Sort**
 

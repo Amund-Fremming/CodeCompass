@@ -82,3 +82,77 @@ public int removeElement(int[] nums, int val) {
     return j;
 }
 ```
+
+**Fjern duplikater i en array og returner antall duplikater og la arrayen ha alle stigende tall i rekkefølge uten duplikater i arrayen**
+
+```java
+public int removeDuplicates(int[] nums) {
+    int j = 1;
+    for(int i = 1; i < nums.length; i++) {
+        if(nums[i] != nums[i - 1]) {
+            nums[j] = nums[i];
+            j++;
+        }
+    }
+
+    return j;
+    }
+```
+
+**Flytt en array k ganger mot høyre**
+
+```java
+public void rotate(int[] nums, int k) {
+    k %= nums.length;
+    reverse(nums, 0, nums.length - 1);
+    reverse(nums, 0, k-1);
+    reverse(nums, k, nums.length - 1);
+}
+
+public void reverse(int[] nums, int start, int end) {
+    while(start < end) {
+        int temp = nums[start];
+        nums[start] = nums[end];
+        nums[end] = temp;
+        start++;
+        end--;
+    }
+}
+```
+
+**Gitt en array med priser, der i representerer dagen, finn maksimal profit**
+
+```java
+public int maxProfit(int[] prices) {
+    int bestProfit = 0;
+    int lowest = Integer.MAX_VALUE;
+    int profitNow = 0;
+
+    for(int i = 0; i < prices.length; i++) {
+        if(prices[i] < lowest)
+            lowest = prices[i];
+
+        profitNow = prices[i] - lowest;
+        if(profitNow > bestProfit)
+            bestProfit = profitNow;
+    }
+
+    return bestProfit;
+}
+```
+
+**En arrray med tall, tallene viser hvor langt du kan maksimalt hoppe, målet er å nå siste index**
+
+```java
+public boolean canJump(int[] nums) {
+    int reach = 0;
+    for(int i = null; i < nums.length; i++) {
+        // Vi har gått for langt
+        if(i > reach) return false;
+
+        // Lagrer ny reach om vi har ett lenger der vi stå rnå, eller om den gamle rekkevidden fortsatt er lengre
+        reach = Math.max(reach, i + nums[i]);
+    }
+    return true;
+}
+```

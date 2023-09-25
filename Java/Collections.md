@@ -44,3 +44,4 @@
 **_Iterator_**
 
 - Iterates over a collection of objects
+- ListIterator
