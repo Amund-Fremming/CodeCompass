@@ -1,4 +1,10 @@
-**Reverse array of characters just by modifying the array**
+## Checkliste før kode
+
+- Må parameter modifiseres eller kan vi lage ny
+- Mulig å iterere bakover spesielt om noe skal fylles opp
+- .trim(\\s+) fjerner alt whitepsace
+- Bruke to pekere? en som leter og en som står på plass som skal fjernes
+- **Reverse array of characters just by modifying the array**
 
 ```java
 public void reverseString(char[] s) {
@@ -155,4 +161,36 @@ public boolean canJump(int[] nums) {
     }
     return true;
 }
+```
+
+**Merge two strings, alternating from left**
+
+- Bruk stringbuilder men ikke string og legg til på den
+
+```java
+class Solution {
+    public String mergeAlternately(String word1, String word2) {
+
+        StringBuilder builder = new StringBuilder();
+        int len = word1.length() > word2.length() ? word1.length() : word2.length();
+
+        for(int i = 0; i < len; i++) {
+            if(i < word1.length()) {
+                builder.append(word1.charAt(i));
+            }
+
+            if(i < word2.length()) {
+                builder.append(word2.charAt(i));
+            }
+        }
+
+        return builder.toString();
+    }
+}
+```
+
+**t**
+
+```java
+
 ```
