@@ -4,7 +4,8 @@
 - Mulig å iterere bakover spesielt om noe skal fylles opp
 - .trim(\\s+) fjerner alt whitepsace
 - Bruke to pekere? en som leter og en som står på plass som skal fjernes
-- **Reverse array of characters just by modifying the array**
+
+**Reverse array of characters just by modifying the array**
 
 ```java
 public void reverseString(char[] s) {
