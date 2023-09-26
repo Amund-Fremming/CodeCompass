@@ -82,3 +82,7 @@
   - En singleton klasse er en klasse som sikrer at bare en instans av klassen eksisterer i JVM. Den er nyttig når du vil ha streng kontroll over globale variabler for dataforbindelser eller konfigurasjoner
 - Hva er forskjellen på overlasting og overstyring av metoder i java?
   - Overlasting er da flere metoder i samme klasse har samme navn men forskjellige parametre. Overstyring er da en underklasse gir en spesifikk implementasjon av en metode som er definert i dens overklasse
+- Hva er forskjellen på statiske og instans metoder
+  - Statiske metoder tilhører klassen og ikke en bestemt instans av klassen, så man trenger ikke opprette noe objekt, mens instans metoder tilhører en bestemt instans avb klassen
+  - Statiske metoder hentes ved bruk av klassenavn, mens instans vde å opprette objekt av klassen.
+  - Statisk brukes ofte til hjelpemetoder, fabrikkmetoder eller meotder som gir funskjonalitet uavhengig av objektetes tilstand.
