@@ -190,6 +190,104 @@ class Solution {
 }
 ```
 
+**Finnes det tre tall i en araray der arr[i] < arr[j] < arr[k] og i < j < k**
+
+```java
+public boolean increasingTriplet(int[] nums) {
+    int pointer1 = Integer.MAX_VALUE;
+    int pointer2 = Integer.MAX_VALUE;
+    for(int i = 0; i < nums.length; i++) {
+        if(nums[i] <= pointer1) {
+            pointer1 = nums[i];
+        } else if(nums[i] <= pointer2) {
+            pointer2 = nums[i];
+        } else {
+            return true;
+        }
+    }
+
+    return false;
+}
+```
+
+**Gitt en array med stolper, hva er maksimal mengde vann vi kan holde**
+
+```java
+public int maxArea(int[] height) {
+    int biggestVol = 0;
+    int left = 0;
+    int right = height.length - 1;
+
+    while(left < right) {
+
+        int minHeight = Math.min(height[left], height[right]);
+        biggestVol = Math.max(biggestVol, minHeight * (right-left));
+
+        if(height[left] < height[right])
+            left++;
+        else
+            right--;
+    }
+
+    return biggestVol;
+}
+```
+
+**Finn sub array med lengde k som har størst average**
+
+```java
+public double findMaxAverage(int[] nums, int k) {
+    double sum = 0.0;
+    for (int i = 0; i < k; i++) {
+        sum += nums[i];
+    }
+
+    double maxSum = sum;
+    for (int i = k; i < nums.length; i++) {
+        sum += nums[i] - nums[i - k];
+        maxSum = Math.max(maxSum, sum);
+    }
+
+    return maxSum / k;
+}
+```
+
+**Finn størst antall vokaler i en substring med lengde k, i en string**
+
+```java
+public int maxVowels(String s, int k) {
+    char[] arr = s.toCharArray();
+    int maxVowels = 0;
+
+    //Initial Window
+    for(int i = 0; i < k; i++) {
+        if(isVowel(arr[i])) {
+            maxVowels++;
+        }
+    }
+
+    int localVowels = maxVowels;
+    // Slide the Window
+    for(int i = k; i < arr.length; i++) {
+        // skal vekk fra vindu
+        if(isVowel(arr[i - k]))
+            localVowels--;
+
+        // skal inn i vindu
+        if(isVowel(arr[i]))
+            localVowels++;
+
+        maxVowels = Math.max(maxVowels, localVowels);
+    }
+
+    return maxVowels;
+}
+
+boolean isVowel(char c) {
+    return c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u';
+}
+```
+
 **t**
 
 ```java
