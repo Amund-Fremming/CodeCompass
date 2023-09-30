@@ -61,11 +61,23 @@
 
 **Trees**
 
--
+- Tre struktur, en foreldre node, Binærtre har to barn, andre kan ha fler
+- Binærtre: venstre er mindre en forelder og høyre er større
+- TreeSet (Set), TreeMap(sorteres etter nøkkler)
 
 # Sorterings metoder
 
-# Garbage collection
+- Insertion Sort
+- Selection Sort
+- Merge Sort
+- Quick Sort
+- Radix sort
+
+# Garbage collection og Minne
+
+- Brukes for å frigjøre plass til programmer som gjører så de utføres mest effektivt
+- Fungerer med Mark and Sweep der programmer som ikke er markert som programmet ikke lenger kan få tak i blir fjernet
+- Stack: lagres primitive datatypers variabler, funksjonskall og lokalvariabler lagres. for hver
 
 # Design patterns
 
