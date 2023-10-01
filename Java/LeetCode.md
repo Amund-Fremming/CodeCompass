@@ -288,8 +288,39 @@ boolean isVowel(char c) {
 }
 ```
 
-**t**
+**Er stringen med paranteser balansert?**
 
 ```java
+public static boolean balanceParenthesis(String s) {
+        if(s.length() % 2 != 0) return false;
+        char[] p = s.toCharArray();
 
+        Deque<Character> stack = new ArrayDeque<>();
+
+        for(char c : p) {
+            if(isOpen(c)) {
+                stack.push(c);
+            } else if(isClosing(c)) {
+                if(stack.isEmpty() || !isMatchingPair(stack.pop(), c)) {
+                    return false;
+                }
+            }
+        }
+
+        return stack.isEmpty();
+    }
+
+    private static boolean isMatchingPair(char open, char close) {
+        return (open == '(' && close == ')') ||
+                (open == '{' && close == '}') ||
+                (open == '[' && close == ']');
+    }
+
+    private static boolean isOpen(char c) {
+        return c == '(' || c == '[' || c == '{';
+    }
+
+    private static boolean isClosing(char c) {
+        return c == ')' || c == ']' || c == '}';
+    }
 ```

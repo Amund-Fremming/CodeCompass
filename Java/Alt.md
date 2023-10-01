@@ -78,7 +78,28 @@
 - Brukes for å frigjøre plass til programmer som gjører så de utføres mest effektivt
 - Fungerer med Mark and Sweep der programmer som ikke er markert som programmet ikke lenger kan få tak i blir fjernet
 - Stack: lagres primitive datatypers variabler, funksjonskall og lokalvariabler lagres. for hver
+- Lever på FIFO, Når funksjonen avsluttes fjernes den fra framen, her fjernes da funskjonen fra minnet
+- Heap: Her lagres objekter
+- I java fjernes minne som ikke brukes lenger av garbage collection, mens i C for eksempel må dette håndteres selv
 
 # Design patterns
 
+**Singleton**
+
+- En klasse kun har en instans og gir en global metode for å få tilgang til denne instansen. Vi har da en tom konstruktør og en getInstance metode for å sjekke om instansen er null og hvis ikke lager vi en
+- Factory method: Gir grensesnitt for å opprette objekter, men lar underklasser avjgjøre hilket objekt som skal instansieres
+- Stategy: Definerer en familie algoritmer, kapsler dem og gjør dem utskiftbare. Strategien lar algoritmen variere uavhengig av klienter som bruker den
+- Observer: Lar ett objekt subjekt varsle andre objekter kalt observers om endringer i sin tilstand
+- Decorator:
+
 # Spørsmål
+
+**Hva er overlasting og overstyring i java**
+
+- Overlasting er å ha flere metoder med samme navn, men forskjellige antall eller forskjellige parametere
+- Overstyring er da vi bruker @Override til å overskrive andre metoder som toString for eks.
+
+**Hva er forskjellen på equals og ==**
+
+- == sjekker om to referanser peker på samme objekt i minnet, men på primitive typer som int og char sammenlikner vi faktisk verdiene
+- Equals brukes for å sjekke innholdsmessig likeverdighet
