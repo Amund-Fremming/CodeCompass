@@ -324,3 +324,117 @@ public static boolean balanceParenthesis(String s) {
         return c == ')' || c == ']' || c == '}';
     }
 ```
+
+**Snu lenket liste**
+
+```java
+public static void reverse(Node head) {
+    // snu alle pekere
+    // sett neste til neste
+    // sett nodens neste til forrige, snu peker
+    // sett forrige til denne
+    // set denne til neste
+
+    Node prev = null;
+    Node current = head;
+    Node next = null;
+
+    while(current != null) {
+        next = current.next;
+        current.next = prev;
+        prev = current;
+        current = next;
+    }
+
+    }
+```
+
+**Hvordan finne midtren av en lenketliste**
+
+```java
+public static Node findCenterRek(Node head) {
+    // En som går en om gangen, den andre går to, når andre er i slutten er vi framme med sakt
+    if(head == null) return null;
+
+    Node slow = head;
+    Node fast = head;
+
+    while (fast != null && fast.next != null) {
+        slow = slow.next;
+        fast = fast.next.next;
+    }
+
+    return slow;´
+}
+```
+
+**Finn høyde av ett tre**
+
+```java
+public static int findTreeHeight(TreeNode root) {
+    // Hvert tre må spørre hva høyden til treet under og plusse på 1 for seg selv
+    // dette går rekursivt ned til vi er tomme og deretter returneres 1 + høyden til treet hele veien opp
+    if(root == null) return 0;
+
+    int leftHeight = findTreeHeight(root.left);
+    int rightHeight = findTreeHeight(root.right);
+
+    return 1 + Math.max(leftHeight, rightHeight);
+}
+```
+
+**Reverseer ett binærtre**
+
+```java
+public static void reverseBinaryTree(TreeNode root) {
+    // Starter på topp, hvis denne er null reture (Base case)
+    // bytt venstre og høyre tre
+    // rekursivt speil venstre tre og høyre tre
+    if(root == null) return;
+
+    TreeNode temp = root.left;
+    root.left = root.right;
+    root.right = temp;
+
+    reverseBinaryTree(root.left);
+    reverseBinaryTree(root.right);
+}
+```
+
+**Sortering**
+
+```java
+public static void selectionSort(int[] arr) {
+    int n = arr.length;
+
+    for(int i = 0; i < n-1; i++) {
+        int minste = i;
+        for(int j = i+1; j < n; j++)
+            // Finner minste
+            if(arr[j] < arr[i])
+                minste = j;
+
+
+        int temp = arr[minste];
+        arr[minste] = arr[i];
+        arr[i] = temp;
+    }
+}
+
+public static void insertionSort(int[] arr) {
+    int n = arr.length;
+
+    for(int i = 1; i < n; i++) {
+        int key = arr[i];
+        int j = i - 1;
+
+        while(j >= 0 && arr[j] > key) {
+            arr[j + 1] = arr[j];
+            j = j - 1;
+        }
+
+        arr[j + 1] = key;
+    }
+}
+
+```
