@@ -18,7 +18,7 @@
 - Vanligste i java er der ett foreldre referanse brukes til å henvise ett barn objekt
 - Vi kan dermed lage factory klasser eller klasser som tar inn mye forskjellige objekt, som kan kalle fellses metoder på disse
 
-**Arv**
+**Arv**d
 
 - Arv lar en klasse overta egenskaper og oppførsel fra en annen klasse
 - Vi definerer da en ny klasse basert på en eksisterende klasse

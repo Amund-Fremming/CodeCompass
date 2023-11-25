@@ -292,37 +292,21 @@ boolean isVowel(char c) {
 
 ```java
 public static boolean balanceParenthesis(String s) {
-        if(s.length() % 2 != 0) return false;
-        char[] p = s.toCharArray();
-
-        Deque<Character> stack = new ArrayDeque<>();
-
-        for(char c : p) {
-            if(isOpen(c)) {
-                stack.push(c);
-            } else if(isClosing(c)) {
-                if(stack.isEmpty() || !isMatchingPair(stack.pop(), c)) {
-                    return false;
-                }
-            }
-        }
-
-        return stack.isEmpty();
+    public boolean isValid(String s) {
+    Deque<Character> stack = new ArrayDeque<>();
+    for(char c : s.toCharArray()) {
+        if(c == '(')
+            stack.push(')');
+        else if(c == '[')
+            stack.push(']');
+        else if(c == '{')
+            stack.push('}');
+        else if(stack.isEmpty() || stack.pop() != c)
+            return false;
     }
 
-    private static boolean isMatchingPair(char open, char close) {
-        return (open == '(' && close == ')') ||
-                (open == '{' && close == '}') ||
-                (open == '[' && close == ']');
-    }
-
-    private static boolean isOpen(char c) {
-        return c == '(' || c == '[' || c == '{';
-    }
-
-    private static boolean isClosing(char c) {
-        return c == ')' || c == ']' || c == '}';
-    }
+    return stack.isEmpty();
+}
 ```
 
 **Snu lenket liste**
@@ -437,4 +421,24 @@ public static void insertionSort(int[] arr) {
     }
 }
 
+```
+
+**Merge two linkedlists**
+
+```java
+public Node mergeTwoListst(Node list1, Node list2) {
+    if(list1 != null && list2 != null) {
+        if(list1.val < list2.val) {
+            list1.next = mergeTwoLists(list.next, list2.next);
+            return list1;
+        } else {
+            list1.next = mergeTwoLists(list1, list2.next);
+            return list2;
+        }
+    }
+
+    if(list1 == null) {
+        return list2;
+    }
+}
 ```
